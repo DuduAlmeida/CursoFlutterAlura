@@ -17,9 +17,9 @@ class ListaTransferencia extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ItemTransferancia('100.00', '1000'),
-        ItemTransferancia('200.00', '1000'),
-        ItemTransferancia('300.00', '1000'),
+        ItemTransferancia(Transferencia(100.00, 1000)),
+        ItemTransferancia(Transferencia(200.00, 1500)),
+        ItemTransferancia(Transferencia(300.00, 1000)),
       ],
     );
   }
@@ -31,21 +31,13 @@ class ListaTransferencia extends StatelessWidget {
 class ItemTransferancia extends StatelessWidget {
   /* #region Inputs Properties*/
 
-  /*** 
-   * O valor da transferência
-   */
-  final String valor;
-
-  /*** 
-   * O número da conta à transferir o valor
-   */
-  final String numeroConta;
+  final Transferencia _transferencia;
 
   /* #Endregion Inputs Properties*/
 
   /* #region Constructor*/
 
-  ItemTransferancia(this.valor, this.numeroConta);
+  ItemTransferancia(this._transferencia);
 
   /* #Endregion Constructor*/
 
@@ -56,11 +48,25 @@ class ItemTransferancia extends StatelessWidget {
     return Card(
       child: ListTile(
         leading: Icon(Icons.monetization_on),
-        title: Text(valor),
-        subtitle: Text(numeroConta),
+        title: Text(_transferencia.valor.toString()),
+        subtitle: Text(_transferencia.numeroConta.toString()),
       ),
     );
   }
 
   /* #Endregion Build*/
+}
+
+class Transferencia {
+  /*** 
+   * O valor da transferência
+   */
+  final double valor;
+
+  /*** 
+   * O número da conta à transferir o valor
+   */
+  final int numeroConta;
+
+  Transferencia(this.valor, this.numeroConta);
 }
