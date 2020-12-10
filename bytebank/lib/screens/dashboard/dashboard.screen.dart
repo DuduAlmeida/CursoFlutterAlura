@@ -38,8 +38,8 @@ class Dashboard extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(8.0),
               color: Theme.of(context).primaryColor,
-              height: 100,
-              width: 150,
+              height: MediaQuery.of(context).size.width * 0.3375,
+              width: MediaQuery.of(context).size.width * 0.45,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
