@@ -12,16 +12,17 @@ const _tituloAppBar = 'Criando Transferência';
 
 /// #endregion Constants
 
-class FormularioTransferencia extends StatefulWidget {
+class FormularioTransferenciaCurso1 extends StatefulWidget {
   //const FormularioTransferencia({Key key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return FormularioTransferenciaState();
+    return FormularioTransferenciaCurso1State();
   }
 }
 
-class FormularioTransferenciaState extends State<FormularioTransferencia> {
+class FormularioTransferenciaCurso1State
+    extends State<FormularioTransferenciaCurso1> {
   final TextEditingController _controladorCampoNumeroConta =
       TextEditingController();
   final TextEditingController _controladorCampoValor = TextEditingController();

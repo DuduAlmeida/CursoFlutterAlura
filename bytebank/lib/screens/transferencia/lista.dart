@@ -15,7 +15,7 @@ const _tituloAppBar = 'Transferências';
 ///
 /// A classe que representa o estado da lista de transferências
 ///
-class ListaTransferenciasState extends State<ListaTransferencia> {
+class ListaTransferenciasState extends State<ListaTransferenciaCurso1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +34,7 @@ class ListaTransferenciasState extends State<ListaTransferencia> {
         child: Icon(Icons.add),
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return FormularioTransferencia();
+            return FormularioTransferenciaCurso1();
           })).then((tranferenciaRecebida) {
             setState(() {
               if (tranferenciaRecebida != null) {
@@ -51,7 +51,7 @@ class ListaTransferenciasState extends State<ListaTransferencia> {
 ///
 /// A classe que representa o Widget da lista de transferência
 ///
-class ListaTransferencia extends StatefulWidget {
+class ListaTransferenciaCurso1 extends StatefulWidget {
   final List<Transferencia> _transferencias = new List();
 
   @override
