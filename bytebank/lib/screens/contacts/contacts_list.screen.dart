@@ -1,3 +1,4 @@
+import 'package:bytebank/database/app_database.dart';
 import 'package:bytebank/models/contacts.dart';
 import 'package:bytebank/screens/contacts/contacts_form.dart';
 
@@ -16,7 +17,7 @@ const _tituloAppBar = 'Contacts';
 class ContactsList extends StatelessWidget {
   /// #region Public Properties
 
-  final List<Contact> contacts = new List();
+  // final List<Contact> contacts = new List();
 
   /// #endregion Public Properties
 
@@ -26,13 +27,20 @@ class ContactsList extends StatelessWidget {
       appBar: AppBar(
         title: Text(_tituloAppBar),
       ),
-      body: ListView.builder(
-        padding: EdgeInsets.all(8),
-        itemBuilder: (context, index) {
-          final Contact contact = contacts[index];
-          return _ContactItem(contact);
+      body: FutureBuilder(
+        future: findAll(),
+        builder: (context, snapshot) {
+          final List<Contact> contacts = snapshot.data;
+
+          return ListView.builder(
+            padding: EdgeInsets.all(8),
+            itemBuilder: (context, index) {
+              final Contact contact = contacts[index];
+              return _ContactItem(contact);
+            },
+            itemCount: contacts.length,
+          );
         },
-        itemCount: contacts.length,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
