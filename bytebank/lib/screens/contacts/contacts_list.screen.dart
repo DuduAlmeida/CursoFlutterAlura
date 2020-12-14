@@ -14,7 +14,12 @@ const _tituloAppBar = 'Contacts';
 
 /// #endregion Constants
 
-class ContactsList extends StatelessWidget {
+class ContactsList extends StatefulWidget {
+  @override
+  _ContactsListState createState() => _ContactsListState();
+}
+
+class _ContactsListState extends State<ContactsList> {
   /// #region Public Properties
 
   // final List<Contact> contacts = new List();
@@ -68,9 +73,15 @@ class ContactsList extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => ContactsForm()))
-              .then((newContact) {
-            debugPrint(newContact.toString());
+              .push(
+            MaterialPageRoute(
+              builder: (context) => ContactsForm(),
+            ),
+          )
+              .then((value) {
+            setState(() {
+              widget.createState();
+            });
           });
         },
         child: Icon(Icons.add),

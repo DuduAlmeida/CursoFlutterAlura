@@ -3,6 +3,8 @@
 import 'package:bytebank/models/contacts.dart';
 import 'package:flutter/material.dart';
 
+import 'package:bytebank/database/app_database.dart';
+
 /// #endregion Imports
 
 /// #region Constants
@@ -70,7 +72,8 @@ class _ContactsFormState extends State<ContactsForm> {
                     final int accountNumber =
                         int.tryParse(_accountNumberController.text);
                     final newContact = Contact(0, name, accountNumber);
-                    Navigator.of(context).pop(newContact);
+                    save(newContact)
+                        .then((contactId) => Navigator.of(context).pop());
                   },
                   child: Text('Create'),
                 ),
