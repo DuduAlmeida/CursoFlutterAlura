@@ -1,10 +1,10 @@
-import 'package:bytebank/database/app_database.dart';
-import 'package:bytebank/models/contacts.dart';
-import 'package:bytebank/screens/contacts/contacts_form.dart';
-
 /// #region Imports
 
 import 'package:flutter/material.dart';
+
+import 'package:bytebank/screens/contacts/contacts_form.dart';
+import 'package:bytebank/database/dao/contact_dao.dart';
+import 'package:bytebank/models/contacts.dart';
 
 /// #endregion Imports
 
@@ -23,6 +23,7 @@ class _ContactsListState extends State<ContactsList> {
   /// #region Public Properties
 
   // final List<Contact> contacts = new List();
+  final ContactDAO _contactDAO = ContactDAO();
 
   /// #endregion Public Properties
 
@@ -34,7 +35,7 @@ class _ContactsListState extends State<ContactsList> {
       ),
       body: FutureBuilder<List<Contact>>(
         initialData: new List(),
-        future: findAll(),
+        future: _contactDAO.findAll(),
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.none:

@@ -3,7 +3,7 @@
 import 'package:bytebank/models/contacts.dart';
 import 'package:flutter/material.dart';
 
-import 'package:bytebank/database/app_database.dart';
+import 'package:bytebank/database/dao/contact_dao.dart';
 
 /// #endregion Imports
 
@@ -28,6 +28,8 @@ class _ContactsFormState extends State<ContactsForm> {
 
   final TextEditingController _accountNumberController =
       TextEditingController();
+
+  final ContactDAO _contactDAO = ContactDAO();
 
   /// #endregion Private Properties
 
@@ -72,7 +74,8 @@ class _ContactsFormState extends State<ContactsForm> {
                     final int accountNumber =
                         int.tryParse(_accountNumberController.text);
                     final newContact = Contact(0, name, accountNumber);
-                    save(newContact)
+                    _contactDAO
+                        .save(newContact)
                         .then((contactId) => Navigator.of(context).pop());
                   },
                   child: Text('Create'),
