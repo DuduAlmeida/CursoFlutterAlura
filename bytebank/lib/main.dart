@@ -3,9 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:bytebank/screens/dashboard/dashboard.screen.dart';
 
-// import 'package:bytebank/models/contacts.dart';
-// import 'database/app_database.dart';
-
 /// #endregion Imports
 
 void main() {

@@ -10,7 +10,7 @@ import 'package:bytebank/models/contacts.dart';
 
 /// #region Constants
 
-const _tituloAppBar = 'Contacts';
+const _tituloAppBar = 'Transfer';
 
 /// #endregion Constants
 
