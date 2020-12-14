@@ -27,18 +27,31 @@ class ContactsList extends StatelessWidget {
       appBar: AppBar(
         title: Text(_tituloAppBar),
       ),
-      body: FutureBuilder(
+      body: FutureBuilder<List<Contact>>(
+        initialData: new List(),
         future: findAll(),
         builder: (context, snapshot) {
-          final List<Contact> contacts = snapshot.data;
+          if (snapshot != null) {
+            final List<Contact> contacts = snapshot.data;
 
-          return ListView.builder(
-            padding: EdgeInsets.all(8),
-            itemBuilder: (context, index) {
-              final Contact contact = contacts[index];
-              return _ContactItem(contact);
-            },
-            itemCount: contacts.length,
+            return ListView.builder(
+              padding: EdgeInsets.all(8),
+              itemBuilder: (context, index) {
+                final Contact contact = contacts[index];
+                return _ContactItem(contact);
+              },
+              itemCount: contacts.length,
+            );
+          }
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                CircularProgressIndicator(),
+                Text('Loading'),
+              ],
+            ),
           );
         },
       ),

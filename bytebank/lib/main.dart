@@ -1,19 +1,15 @@
-import 'package:bytebank/models/contacts.dart';
-
 /// #region Imports
 
 import 'package:flutter/material.dart';
 import 'package:bytebank/screens/dashboard/dashboard.screen.dart';
 
+// import 'package:bytebank/models/contacts.dart';
 // import 'database/app_database.dart';
 
 /// #endregion Imports
 
 void main() {
   runApp(BytebankApp());
-  // save(Contact(0, 'Lyly', 1001));
-  // save(Contact(0, 'Lili', 1002));
-  // save(Contact(0, 'Mimin', 1003));
 }
 
 class BytebankApp extends StatelessWidget {
