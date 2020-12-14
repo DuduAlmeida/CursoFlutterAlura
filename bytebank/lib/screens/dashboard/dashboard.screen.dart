@@ -1,6 +1,8 @@
 /// #region Imports
 import 'package:flutter/material.dart';
 import 'package:bytebank/screens/contacts/contacts_list.screen.dart';
+import 'package:bytebank/screens/transactions/transactions_list.dart';
+import 'package:bytebank/screens/dashboard/widgets/feature_item.dart';
 
 /// #endregion Imports
 
@@ -36,14 +38,14 @@ class Dashboard extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                _FeatureItem(
+                FeatureItem(
                   'Transfer',
                   Icons.monetization_on,
                   onClick: () {
                     _showContactsList(context);
                   },
                 ),
-                _FeatureItem(
+                FeatureItem(
                   'Transaction feed',
                   Icons.description,
                   onClick: () {
@@ -61,74 +63,6 @@ class Dashboard extends StatelessWidget {
   /// #endregion Build
 }
 
-class _FeatureItem extends StatelessWidget {
-  /// #region Public Properties
-
-  ///
-  /// Nome do card
-  ///
-  final String name;
-
-  ///
-  /// ícone do card
-  ///
-  final IconData icon;
-
-  ///
-  /// O callback ao clicar no card
-  ///
-  final Function onClick;
-
-  /// #endregion Public Properties
-
-  /// #region Contructor
-
-  const _FeatureItem(
-    this.name,
-    this.icon, {
-    @required this.onClick,
-  });
-
-  /// #endregion Contructor
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Material(
-        color: Theme.of(context).primaryColor,
-        child: InkWell(
-          onTap: () => onClick(),
-          child: Container(
-            padding: EdgeInsets.all(8.0),
-            // color: Theme.of(context).primaryColor,
-            height: MediaQuery.of(context).size.width * 0.3375,
-            width: MediaQuery.of(context).size.width * 0.45,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Icon(
-                  icon,
-                  color: Colors.white,
-                  size: 24,
-                ),
-                Text(
-                  name,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
 void _showContactsList(BuildContext context) {
   Navigator.of(context)
       .push(MaterialPageRoute(builder: (context) => ContactsList()));
@@ -136,5 +70,5 @@ void _showContactsList(BuildContext context) {
 
 void _showTransactionFeed(BuildContext context) {
   Navigator.of(context)
-      .push(MaterialPageRoute(builder: (context) => ContactsList()));
+      .push(MaterialPageRoute(builder: (context) => TransactionsList()));
 }
