@@ -1,6 +1,7 @@
 class Contact {
   /// #region Public properties
 
+  final int id;
   final String name;
   final int accountNumber;
 
@@ -11,12 +12,12 @@ class Contact {
   ///
   /// Construtor Padrão
   ///
-  Contact(this.name, this.accountNumber);
+  Contact(this.id, this.name, this.accountNumber);
 
   /// #endregion Constructor
 
   @override
   String toString() {
-    return 'Contact{name: $name, accountNumber: $accountNumber}';
+    return 'Contact{id: $id,name: $name, accountNumber: $accountNumber}';
   }
 }
