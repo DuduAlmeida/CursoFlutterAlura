@@ -8,10 +8,11 @@ void createDatabase() {
       path,
       onCreate: (db, version) {
         db.execute('CREATE TABLE contacts('
-        'id INTEGER PRIMARY KEY, '
-        'name TEXT, '
-        'account_number INTEGER)')
+            'id INTEGER PRIMARY KEY, '
+            'name TEXT, '
+            'account_number INTEGER)');
       },
+      version: 1,
     );
   });
 }
