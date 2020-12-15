@@ -1,3 +1,5 @@
+import 'package:bytebank/screens/transactions/transaction_form.dart';
+
 /// #region Imports
 
 import 'package:flutter/material.dart';
@@ -53,7 +55,10 @@ class _ContactsListState extends State<ContactsList> {
                 padding: EdgeInsets.all(8),
                 itemBuilder: (context, index) {
                   final Contact contact = contacts[index];
-                  return _ContactItem(contact);
+                  return _ContactItem(contact, onClick: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => TransactionForm(contact)));
+                  });
                 },
                 itemCount: contacts.length,
               );
@@ -87,14 +92,16 @@ class _ContactItem extends StatelessWidget {
   /// #region Properties
 
   final Contact contact;
+  final Function onClick;
 
   /// #endregion Properties
 
   /// #region Constructor
 
   _ContactItem(
-    this.contact,
-  );
+    this.contact, {
+    @required this.onClick,
+  });
 
   /// #endregion Constructor
 
@@ -102,6 +109,7 @@ class _ContactItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
+        onTap: () => onClick(),
         title: Text(
           contact.name,
           style: TextStyle(
