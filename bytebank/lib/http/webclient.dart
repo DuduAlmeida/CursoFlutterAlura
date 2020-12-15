@@ -11,7 +11,9 @@ import 'package:http_interceptor/http_interceptor.dart';
 Future<List<Transaction>> findAll() async {
   final Client client =
       HttpClientWithInterceptor.build(interceptors: [LoggingInterceptor()]);
-  final Response response = await client.get('localhost:8080/transactions');
+  final Response response = await client
+      .get('http://localhost:8080/transactions')
+      .timeout(Duration(seconds: 15));
   final List<dynamic> decodedJson = jsonDecode(response.body);
   final List<Transaction> transactions = new List();
 
