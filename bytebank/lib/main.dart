@@ -1,3 +1,6 @@
+import 'package:bytebank/models/contacts.dart';
+import 'package:bytebank/models/transaction.dart';
+
 /// #region Imports
 
 import 'package:flutter/material.dart';
@@ -8,6 +11,7 @@ import 'package:bytebank/screens/dashboard/dashboard.screen.dart';
 
 void main() {
   runApp(BytebankApp());
+  // save(Transaction(400, Contact(0, 'Julian', 1234))).then((value) => debugPrint('Tranação criada: $value'));
 }
 
 class BytebankApp extends StatelessWidget {
