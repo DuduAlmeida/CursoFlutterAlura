@@ -8,7 +8,7 @@ import 'package:http_interceptor/http_interceptor.dart';
 
 /// #endregion Imports
 
-Future<List<Transaction> findAll() async {
+Future<List<Transaction>> findAll() async {
   final Client client =
       HttpClientWithInterceptor.build(interceptors: [LoggingInterceptor()]);
   final Response response = await client.get('localhost:8080/transactions');
