@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:lojinha_alura/pages/carrinhos_page.dart';
 import 'package:lojinha_alura/pages/detalhes_page.dart';
+import 'package:lojinha_alura/widgets/appbar_custom.dart';
 
 /// #endregion Imports
 
@@ -85,9 +86,7 @@ class Inicio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Inicio'),
-        ),
+        appBar: AppBarCustom(titulo: 'Lojinha Alura'),
         body: FlatButton(
           onPressed: () {
             Navigator.of(context).push(MaterialPageRoute(
