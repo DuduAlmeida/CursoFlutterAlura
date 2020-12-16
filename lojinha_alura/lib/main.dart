@@ -86,6 +86,7 @@ class Inicio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.grey[100],
         appBar: AppBarCustom(titulo: 'Lojinha Alura'),
         body: FlatButton(
           onPressed: () {

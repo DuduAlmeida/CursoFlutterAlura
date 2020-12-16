@@ -1,6 +1,7 @@
 /// #region Imports
 
 import 'package:flutter/material.dart';
+import 'package:lojinha_alura/widgets/botao_carrinho.dart';
 
 /// #endregion Imports
 
@@ -45,6 +46,13 @@ class AppBarCustom extends StatelessWidget with PreferredSizeWidget {
       /// Centraliza o título em todas as plataformas
       ///
       centerTitle: true,
+
+      ///
+      /// Aqui é possível adicionar botões no appBar
+      ///
+      actions: [
+        BotaoCarrinho(),
+      ],
     );
   }
 
