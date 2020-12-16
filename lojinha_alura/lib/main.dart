@@ -1,4 +1,10 @@
+/// #region Imports
+
 import 'package:flutter/material.dart';
+import 'package:lojinha_alura/pages/carrinhos_page.dart';
+import 'package:lojinha_alura/pages/detalhes_page.dart';
+
+/// #endregion Imports
 
 void main() {
   runApp(MyApp());
@@ -9,12 +15,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Lojinha Alura',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      routes: {
+        '/carrinho': (context) => CarrinhoPage(),
+      },
       home: Inicio(),
     );
   }
@@ -76,9 +85,16 @@ class Inicio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('Teste'),
-      ),
-    );
+        appBar: AppBar(
+          title: Text('Inicio'),
+        ),
+        body: FlatButton(
+          onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => DetalhesPage(),
+            ));
+          },
+          child: Text('Vamos para os detalhes'),
+        ));
   }
 }
