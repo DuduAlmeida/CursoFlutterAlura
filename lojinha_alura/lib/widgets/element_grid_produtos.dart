@@ -28,20 +28,59 @@ class ElementoGridProdutos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Container(
+      margin: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        ///
+        /// Recebe uma lista de BoxShadow
+        ///
+        boxShadow: [
+          BoxShadow(
+            ///
+            /// O raio de até onde essa sombra vai alcançar
+            ///
+            spreadRadius: 2,
+
+            ///
+            /// O quanto a sombra será desfocada
+            ///
+            blurRadius: 8,
+
+            ///
+            /// A cor da sombra
+            ///
+            color: Colors.black12,
+
+            ///
+            /// O movimento da sombra, sendo o primeiro relativo ao eixo x e o segundo ao y
+            ///
+            offset: Offset(0, 0),
+          ),
+        ],
+      ),
+
       ///
-      /// Define o alinhamento das propriedades filhas
+      /// Vai cortar os elementos filhos para ficarem da forma deseja,
+      /// como se tivesse um overflow com estilo
       ///
-      alignment: Alignment.center,
-      children: [
-        ImagemElementoGridProdutos(
-          imagem: movel.foto,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8),
+        child: Stack(
+          ///
+          /// Define o alinhamento das propriedades filhas
+          ///
+          alignment: Alignment.center,
+          children: [
+            ImagemElementoGridProdutos(
+              imagem: movel.foto,
+            ),
+            DegradeElementoGridProdutos(),
+            TituloElementoGridProdutos(
+              titulo: movel.titulo,
+            ),
+          ],
         ),
-        DegradeElementoGridProdutos(),
-        TituloElementoGridProdutos(
-          titulo: movel.titulo,
-        ),
-      ],
+      ),
     );
   }
 }
