@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:lojinha_alura/pages/carrinhos_page.dart';
+import 'package:lojinha_alura/paleta_cores.dart';
 import 'package:lojinha_alura/widgets/appbar_custom.dart';
 import 'package:lojinha_alura/widgets/grid_produtos.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'Lojinha Alura',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        primaryColor: PaletaCores().lilas,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       routes: {

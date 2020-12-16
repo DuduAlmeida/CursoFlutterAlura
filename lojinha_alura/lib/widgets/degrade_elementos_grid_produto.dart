@@ -36,7 +36,7 @@ class DegradeElementoGridProdutos extends StatelessWidget {
               ///
               /// A cor final
               ///
-              Color.fromRGBO(178, 155, 178, 1),
+              Theme.of(context).primaryColor,
             ]),
       ),
     );

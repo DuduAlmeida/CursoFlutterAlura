@@ -1,6 +1,7 @@
 /// #region Imports
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:lojinha_alura/models/movel.dart';
 import 'package:lojinha_alura/widgets/texto_detalhes.dart';
 
@@ -9,7 +10,7 @@ import 'package:lojinha_alura/widgets/texto_detalhes.dart';
 class CardDetalhes extends StatelessWidget {
   /// #region Constructor
 
-  const CardDetalhes({
+  CardDetalhes({
     Key key,
     @required this.movel,
   }) : super(key: key);
@@ -19,6 +20,7 @@ class CardDetalhes extends StatelessWidget {
   /// #region Public Properties
 
   final Movel movel;
+  final formatacaoReais = NumberFormat.currency(locale: 'pt_BR', symbol: 'R\$');
 
   /// #endregion Public Properties
 
@@ -29,6 +31,16 @@ class CardDetalhes extends StatelessWidget {
         children: [
           TextoDetalhes(texto: movel.titulo),
           TextoDetalhes(texto: movel.descricao),
+          Row(
+            children: [
+              Text(formatacaoReais.format(movel.preco)),
+              FlatButton(
+                color: Theme.of(context).primaryColor,
+                onPressed: () {},
+                child: Text('Comprar'),
+              ),
+            ],
+          )
         ],
       ),
     );
