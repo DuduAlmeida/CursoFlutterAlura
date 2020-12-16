@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:lojinha_alura/models/movel.dart';
+import 'package:lojinha_alura/widgets/degrade_elementos_grid_produto.dart';
 import 'package:lojinha_alura/widgets/imagem_elementos_grid_produto.dart';
 
 /// #endregion Imports
@@ -26,8 +27,13 @@ class ElementoGridProdutos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ImagemElementoGridProdutos(
-      imagem: movel.foto,
+    return Stack(
+      children: [
+        ImagemElementoGridProdutos(
+          imagem: movel.foto,
+        ),
+        DegradeElementoGridProdutos(),
+      ],
     );
   }
 }

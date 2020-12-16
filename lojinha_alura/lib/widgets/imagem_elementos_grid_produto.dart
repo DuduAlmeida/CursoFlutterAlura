@@ -21,9 +21,14 @@ class ImagemElementoGridProdutos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image(
-      image: AssetImage('utilidades/assets/imagens/$imagem'),
-      fit: BoxFit.cover,
+    ///
+    /// Esse widget faz ocupar todo o espaço possível
+    ///
+    return Positioned.fill(
+      child: Image(
+        image: AssetImage('utilidades/assets/imagens/$imagem'),
+        fit: BoxFit.cover,
+      ),
     );
   }
 }

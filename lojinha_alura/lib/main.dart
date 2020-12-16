@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:lojinha_alura/pages/carrinhos_page.dart';
-import 'package:lojinha_alura/pages/detalhes_page.dart';
 import 'package:lojinha_alura/widgets/appbar_custom.dart';
 import 'package:lojinha_alura/widgets/grid_produtos.dart';
 
