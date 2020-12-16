@@ -88,8 +88,45 @@ class Inicio extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.grey[100],
         appBar: AppBarCustom(titulo: 'Lojinha Alura'),
-        body: GridProdutos(
-          moveis: moveis,
+        body: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(
+                      left: 20,
+                      right: 30,
+                      bottom: 10,
+                      top: 10,
+                    ),
+                    child: Divider(),
+                  ),
+                ),
+                Text('Produtos'),
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(
+                      left: 30,
+                      right: 20,
+                      bottom: 10,
+                      top: 10,
+                    ),
+                    child: Divider(),
+                  ),
+                ),
+              ],
+            ),
+
+            ///
+            /// Faz o filho se expandir o máximo que puder
+            ///
+            Flexible(
+              child: GridProdutos(
+                moveis: moveis,
+              ),
+            ),
+          ],
         ));
   }
 }
