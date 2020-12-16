@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:lojinha_alura/models/movel.dart';
 import 'package:lojinha_alura/widgets/degrade_elementos_grid_produto.dart';
 import 'package:lojinha_alura/widgets/imagem_elementos_grid_produto.dart';
+import 'package:lojinha_alura/widgets/titulo_elementos_grid_produto.dart';
 
 /// #endregion Imports
 
@@ -28,11 +29,18 @@ class ElementoGridProdutos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      ///
+      /// Define o alinhamento das propriedades filhas
+      ///
+      alignment: Alignment.center,
       children: [
         ImagemElementoGridProdutos(
           imagem: movel.foto,
         ),
         DegradeElementoGridProdutos(),
+        TituloElementoGridProdutos(
+          titulo: movel.titulo,
+        ),
       ],
     );
   }
