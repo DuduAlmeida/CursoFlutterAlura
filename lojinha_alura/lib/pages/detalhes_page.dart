@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:lojinha_alura/models/movel.dart';
 import 'package:lojinha_alura/widgets/appbar_custom.dart';
+import 'package:lojinha_alura/widgets/card_detalhes.dart';
 
 /// #endregion Imports
 
@@ -40,11 +41,19 @@ class DetalhesPage extends StatelessWidget {
         appBar: AppBarCustom(
           titulo: '',
         ),
-        body: FlatButton(
-          onPressed: () {
-            Navigator.of(context).pushNamed('/carrinho');
-          },
-          child: Text('Agora vamos para a página de carrinho'),
+        body: Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            margin: EdgeInsets.all(16),
+
+            ///
+            /// Coloca um tamanho máximo no item
+            ///
+            height: 200,
+            child: CardDetalhes(
+              movel: movel,
+            ),
+          ),
         ),
       ),
     );
