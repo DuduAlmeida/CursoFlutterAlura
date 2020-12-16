@@ -1,6 +1,7 @@
 /// #region Imports
 
 import 'package:flutter/material.dart';
+import 'package:lojinha_alura/widgets/appbar_custom.dart';
 
 /// #endregion Imports
 
@@ -10,8 +11,8 @@ class DetalhesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Detalhes'),
+      appBar: AppBarCustom(
+        titulo: 'Detalhes',
       ),
       body: FlatButton(
         onPressed: () {

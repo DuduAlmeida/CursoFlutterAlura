@@ -1,4 +1,9 @@
+/// #region Imports
+
 import 'package:flutter/material.dart';
+import 'package:lojinha_alura/widgets/appbar_custom.dart';
+
+/// #endregion Imports
 
 class CarrinhoPage extends StatelessWidget {
   const CarrinhoPage({Key key}) : super(key: key);
@@ -6,8 +11,10 @@ class CarrinhoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Carrinho'),
+      backgroundColor: Colors.grey[100],
+      appBar: AppBarCustom(
+        titulo: 'Carrinho',
+        isPageCarrinho: true,
       ),
     );
   }

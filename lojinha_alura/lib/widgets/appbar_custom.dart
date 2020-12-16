@@ -16,12 +16,15 @@ class AppBarCustom extends StatelessWidget with PreferredSizeWidget {
   ///
   final String titulo;
 
+  final bool isPageCarrinho;
+
   /// #endregion Public Properties
 
   /// #region Constructor
 
   const AppBarCustom({
     @required this.titulo,
+    this.isPageCarrinho = false,
   });
 
   /// #endregion Constructor
@@ -36,6 +39,9 @@ class AppBarCustom extends StatelessWidget with PreferredSizeWidget {
         ),
       ),
       backgroundColor: Colors.transparent,
+      iconTheme: IconThemeData(
+        color: Colors.black,
+      ),
 
       ///
       /// Remove a elevação, o tamanho das sombras abaixo do appBar
@@ -51,11 +57,20 @@ class AppBarCustom extends StatelessWidget with PreferredSizeWidget {
       /// Aqui é possível adicionar botões no appBar
       ///
       actions: [
-        BotaoCarrinho(),
+        _mudarPaginaCarrinho(isPageCarrinho),
       ],
     );
   }
 
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
+
+  /// #region Private Methods
+
+  StatelessWidget _mudarPaginaCarrinho(bool isPageCar) {
+    if (isPageCar) return Container();
+    return BotaoCarrinho();
+  }
+
+  /// #endregion Private Methods
 }
