@@ -1,16 +1,15 @@
 /// #region Imports
 
 import 'package:flutter/material.dart';
+import 'package:lojinha_alura/pages/inicio_page.dart';
 import 'package:lojinha_alura/widgets/indicador_botao_carrinho.dart';
-
-import '../main.dart';
 
 /// #endregion Imports
 
 ///
 /// O botão de carrinho, do appBar
 ///
-class BotaoCarrinho extends StatelessWidget {
+class BotaoCarrinhoAppBar extends StatelessWidget {
   /// #region Public Methods
 
   _visibilidadeIndicadorCarrinho() {

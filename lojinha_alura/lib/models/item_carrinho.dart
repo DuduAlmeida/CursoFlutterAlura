@@ -1,6 +1,5 @@
 /// #region Imports
 
-import 'package:flutter/material.dart';
 import 'package:lojinha_alura/models/movel.dart';
 
 /// #endregion Imports

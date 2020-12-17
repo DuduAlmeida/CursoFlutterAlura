@@ -7,7 +7,7 @@ import 'package:lojinha_alura/widgets/card_detalhes.dart';
 
 /// #endregion Imports
 
-class DetalhesPage extends StatelessWidget {
+class DetalhesPage extends StatefulWidget {
   /// #region Constructor
 
   DetalhesPage({Key key, @required this.movel}) : super(key: key);
@@ -21,6 +21,20 @@ class DetalhesPage extends StatelessWidget {
   /// #endregion Public Propeties
 
   @override
+  _DetalhesPageState createState() => _DetalhesPageState();
+}
+
+class _DetalhesPageState extends State<DetalhesPage> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  atualiza() {
+    setState(() {});
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       ///
@@ -28,7 +42,7 @@ class DetalhesPage extends StatelessWidget {
       ///
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('utilidades/assets/imagens/${movel.foto}'),
+          image: AssetImage('utilidades/assets/imagens/${widget.movel.foto}'),
           fit: BoxFit.cover,
         ),
       ),
@@ -51,7 +65,8 @@ class DetalhesPage extends StatelessWidget {
             ///
             height: 220,
             child: CardDetalhes(
-              movel: movel,
+              movel: widget.movel,
+              atualizaPagina: atualiza,
             ),
           ),
         ),

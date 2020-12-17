@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:lojinha_alura/main.dart';
 import 'package:lojinha_alura/models/item_carrinho.dart';
 import 'package:lojinha_alura/models/movel.dart';
+import 'package:lojinha_alura/pages/inicio_page.dart';
 import 'package:lojinha_alura/widgets/texto_detalhes.dart';
 
 /// #endregion Imports
@@ -14,6 +14,7 @@ class CardDetalhes extends StatelessWidget {
 
   CardDetalhes({
     Key key,
+    this.atualizaPagina,
     @required this.movel,
   }) : super(key: key);
 
@@ -23,6 +24,7 @@ class CardDetalhes extends StatelessWidget {
 
   final Movel movel;
   final formatacaoReais = NumberFormat.currency(locale: 'pt_BR', symbol: 'R\$');
+  final Function atualizaPagina;
 
   /// #endregion Public Properties
 
@@ -30,6 +32,7 @@ class CardDetalhes extends StatelessWidget {
 
   _adicionarItemCarrinho(ItemCarrinho item) {
     Inicio.itensCarrinho.add(item);
+    atualizaPagina();
   }
 
   /// #endregion Public Methods

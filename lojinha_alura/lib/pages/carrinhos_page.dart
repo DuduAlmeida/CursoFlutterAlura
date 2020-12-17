@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:lojinha_alura/widgets/appbar_custom.dart';
+import 'package:lojinha_alura/widgets/lista_carrinho.dart';
 
 /// #endregion Imports
 
@@ -16,6 +17,7 @@ class CarrinhoPage extends StatelessWidget {
         titulo: 'Carrinho',
         isPageCarrinho: true,
       ),
+      body: ListaCarrinho(),
     );
   }
 }
