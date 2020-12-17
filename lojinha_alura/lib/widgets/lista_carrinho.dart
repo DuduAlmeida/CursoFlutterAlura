@@ -10,7 +10,7 @@ import 'package:lojinha_alura/pages/inicio_page.dart';
 ///
 /// O widget que contém a lista de itens no carrinho de compra
 ///
-class ListaCarrinho extends StatelessWidget {
+class ListaCarrinho extends StatefulWidget {
   /// #region Constructor
 
   ListaCarrinho({
@@ -19,11 +19,28 @@ class ListaCarrinho extends StatelessWidget {
 
   /// #endregion Constructor
 
+  @override
+  _ListaCarrinhoState createState() => _ListaCarrinhoState();
+}
+
+class _ListaCarrinhoState extends State<ListaCarrinho> {
   /// #region Public Properties
 
   final List<ItemCarrinho> carrinho = Inicio.itensCarrinho;
 
   /// #endregion Public Properties
+
+  /// #region Private Methods
+
+  _aumentarQuantidade(ItemCarrinho item) {
+    item.quantidade++;
+  }
+
+  _diminuirQuantidade(ItemCarrinho item) {
+    item.quantidade--;
+  }
+
+  /// #endregion Private Methods
 
   @override
   Widget build(BuildContext context) {
@@ -49,15 +66,42 @@ class ListaCarrinho extends StatelessWidget {
                   width: MediaQuery.of(context).size.width * 0.35,
                   fit: BoxFit.cover,
                 ),
-                Container(
-                  margin: EdgeInsets.only(left: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(movel.titulo),
-                      Text('${movel.preco}'),
-                      Text('${item.quantidade}'),
-                    ],
+                Expanded(
+                  child: Container(
+                    height: 92,
+                    margin: EdgeInsets.only(left: 10, right: 2),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(movel.titulo),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text('${movel.preco}'),
+                            Row(
+                              children: [
+                                GestureDetector(
+                                  onTap: () => _aumentarQuantidade(item),
+                                  child: Container(
+                                    margin: EdgeInsets.all(8),
+                                    child: Icon(Icons.add, size: 14),
+                                  ),
+                                ),
+                                Text('${item.quantidade}'),
+                                GestureDetector(
+                                  onTap: () => _diminuirQuantidade(item),
+                                  child: Container(
+                                    margin: EdgeInsets.all(8),
+                                    child: Icon(Icons.remove, size: 14),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
