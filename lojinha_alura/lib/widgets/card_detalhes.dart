@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:lojinha_alura/main.dart';
+import 'package:lojinha_alura/models/item_carrinho.dart';
 import 'package:lojinha_alura/models/movel.dart';
 import 'package:lojinha_alura/widgets/texto_detalhes.dart';
 
@@ -23,6 +25,14 @@ class CardDetalhes extends StatelessWidget {
   final formatacaoReais = NumberFormat.currency(locale: 'pt_BR', symbol: 'R\$');
 
   /// #endregion Public Properties
+
+  /// #region Public Methods
+
+  _adicionarItemCarrinho(ItemCarrinho item) {
+    Inicio.itensCarrinho.add(item);
+  }
+
+  /// #endregion Public Methods
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +63,11 @@ class CardDetalhes extends StatelessWidget {
                 ),
                 FlatButton(
                   color: Theme.of(context).primaryColor,
-                  onPressed: () {},
+                  onPressed: () {
+                    _adicionarItemCarrinho(
+                      ItemCarrinho(quantidade: 1, movel: movel),
+                    );
+                  },
                   child: Text(
                     'Comprar',
                     style: TextStyle(color: Colors.white),

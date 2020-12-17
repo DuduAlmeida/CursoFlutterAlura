@@ -1,6 +1,7 @@
 /// #region Imports
 
 import 'package:flutter/material.dart';
+import 'package:lojinha_alura/models/item_carrinho.dart';
 import 'package:lojinha_alura/pages/carrinhos_page.dart';
 import 'package:lojinha_alura/paleta_cores.dart';
 import 'package:lojinha_alura/widgets/appbar_custom.dart';
@@ -46,6 +47,8 @@ class MyApp extends StatelessWidget {
 }
 
 class Inicio extends StatelessWidget {
+  /// #region Public Properties
+
   final List moveis = [
     {
       "titulo": "Mesa",
@@ -97,6 +100,10 @@ class Inicio extends StatelessWidget {
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquam libero id mauris mollis convallis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
     }
   ];
+
+  static List<ItemCarrinho> itensCarrinho = new List();
+
+  /// #endregion Public Properties
 
   @override
   Widget build(BuildContext context) {

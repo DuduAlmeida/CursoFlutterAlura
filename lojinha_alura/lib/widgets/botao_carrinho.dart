@@ -1,6 +1,9 @@
 /// #region Imports
 
 import 'package:flutter/material.dart';
+import 'package:lojinha_alura/widgets/indicador_botao_carrinho.dart';
+
+import '../main.dart';
 
 /// #endregion Imports
 
@@ -8,6 +11,28 @@ import 'package:flutter/material.dart';
 /// O botão de carrinho, do appBar
 ///
 class BotaoCarrinho extends StatelessWidget {
+  /// #region Public Methods
+
+  _visibilidadeIndicadorCarrinho() {
+    if (Inicio.itensCarrinho.length > 0)
+      return Stack(
+        children: [
+          Image(
+            height: 30,
+            image: AssetImage('utilidades/assets/icones/carrinho.png'),
+          ),
+          IndicadorBotaoCarrinho(),
+        ],
+      );
+
+    return Image(
+      height: 30,
+      image: AssetImage('utilidades/assets/icones/carrinho.png'),
+    );
+  }
+
+  /// #endregion Public Methods
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -32,14 +57,7 @@ class BotaoCarrinho extends StatelessWidget {
             bottomLeft: Radius.circular(100),
           ),
         ),
-        child: Image(
-          height: 30,
-
-          ///
-          /// Não esquecer de cadastrar essa rota no pubspec.yaml
-          ///
-          image: AssetImage('utilidades/assets/icones/carrinho.png'),
-        ),
+        child: _visibilidadeIndicadorCarrinho(),
       ),
     );
   }
