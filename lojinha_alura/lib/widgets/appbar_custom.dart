@@ -67,7 +67,7 @@ class AppBarCustom extends StatelessWidget with PreferredSizeWidget {
 
   /// #region Private Methods
 
-  StatelessWidget _mudarPaginaCarrinho(bool isPageCar) {
+  _mudarPaginaCarrinho(bool isPageCar) {
     if (isPageCar) return Container();
     return BotaoCarrinhoAppBar();
   }

@@ -78,6 +78,19 @@ class _InicioState extends State<Inicio> {
 
   /// #endregion Public Properties
 
+  /// #region Public Methods
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  void atualiza() {
+    setState(() {});
+  }
+
+  /// #endregion Public Methods
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -119,6 +132,7 @@ class _InicioState extends State<Inicio> {
             Flexible(
               child: GridProdutos(
                 moveis: moveis,
+                atualiza: atualiza,
               ),
             ),
           ],

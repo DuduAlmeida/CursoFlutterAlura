@@ -36,6 +36,19 @@ class _CarrinhoPageState extends State<CarrinhoPage> {
     return 0;
   }
 
+  Widget _contruirTela() {
+    if (Inicio.itensCarrinho.isNotEmpty)
+      return ListaCarrinho(
+        atualiza: atualiza,
+      );
+
+    return Center(
+        child: Text(
+      'Nenhum item no carrinho',
+      style: Theme.of(context).textTheme.headline1,
+    ));
+  }
+
   /// #endregion Public Methods
 
   final formatacaoReais = NumberFormat.currency(
@@ -75,7 +88,7 @@ class _CarrinhoPageState extends State<CarrinhoPage> {
           ],
         ),
       ),
-      body: ListaCarrinho(atualiza: atualiza),
+      body: _contruirTela(),
     );
   }
 }

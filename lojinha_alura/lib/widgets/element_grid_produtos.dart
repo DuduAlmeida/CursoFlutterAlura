@@ -16,6 +16,7 @@ class ElementoGridProdutos extends StatelessWidget {
   /// #region Public Properties
 
   final Movel movel;
+  final Function atualiza;
 
   /// #endregion Public Properties
 
@@ -23,6 +24,7 @@ class ElementoGridProdutos extends StatelessWidget {
 
   const ElementoGridProdutos({
     this.movel,
+    this.atualiza,
   });
 
   /// #endregion Constructor
@@ -31,11 +33,13 @@ class ElementoGridProdutos extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => DetalhesPage(movel: movel),
-          ),
-        );
+        Navigator.of(context)
+            .push(
+              MaterialPageRoute(
+                builder: (context) => DetalhesPage(movel: movel),
+              ),
+            )
+            .then((value) => atualiza());
       },
       child: Container(
         margin: EdgeInsets.all(10),

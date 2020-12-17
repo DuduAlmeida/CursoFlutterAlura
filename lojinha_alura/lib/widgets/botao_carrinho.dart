@@ -9,7 +9,12 @@ import 'package:lojinha_alura/widgets/indicador_botao_carrinho.dart';
 ///
 /// O botão de carrinho, do appBar
 ///
-class BotaoCarrinhoAppBar extends StatelessWidget {
+class BotaoCarrinhoAppBar extends StatefulWidget {
+  @override
+  _BotaoCarrinhoAppBarState createState() => _BotaoCarrinhoAppBarState();
+}
+
+class _BotaoCarrinhoAppBarState extends State<BotaoCarrinhoAppBar> {
   /// #region Public Methods
 
   _visibilidadeIndicadorCarrinho() {
@@ -30,13 +35,20 @@ class BotaoCarrinhoAppBar extends StatelessWidget {
     );
   }
 
+  @override
+  void initState() {
+    super.initState();
+  }
+
   /// #endregion Public Methods
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).pushNamed('/carrinho');
+        Navigator.of(context).pushNamed('/carrinho').then((value) {
+          setState(() {});
+        });
       },
       child: Container(
         alignment: Alignment.centerRight,

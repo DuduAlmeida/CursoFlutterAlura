@@ -10,8 +10,12 @@ class GridProdutos extends StatelessWidget {
   /// #region Public Properties
 
   final moveis;
+  final Function atualiza;
 
-  const GridProdutos({this.moveis});
+  const GridProdutos({
+    this.moveis,
+    this.atualiza,
+  });
 
   /// #endregion Public Properties
 
@@ -30,7 +34,10 @@ class GridProdutos extends StatelessWidget {
       itemBuilder: (BuildContext context, int indice) {
         final movel = Movel.fromJson(moveis[indice]);
 
-        return ElementoGridProdutos(movel: movel);
+        return ElementoGridProdutos(
+          movel: movel,
+          atualiza: atualiza,
+        );
       },
       itemCount: moveis.length,
     );
