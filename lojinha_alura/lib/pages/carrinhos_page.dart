@@ -6,8 +6,22 @@ import 'package:lojinha_alura/widgets/lista_carrinho.dart';
 
 /// #endregion Imports
 
-class CarrinhoPage extends StatelessWidget {
+class CarrinhoPage extends StatefulWidget {
   const CarrinhoPage({Key key}) : super(key: key);
+
+  @override
+  _CarrinhoPageState createState() => _CarrinhoPageState();
+}
+
+class _CarrinhoPageState extends State<CarrinhoPage> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  atualiza() {
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +31,7 @@ class CarrinhoPage extends StatelessWidget {
         titulo: 'Carrinho',
         isPageCarrinho: true,
       ),
-      body: ListaCarrinho(),
+      body: ListaCarrinho(atualiza: atualiza),
     );
   }
 }

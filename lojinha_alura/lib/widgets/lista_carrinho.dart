@@ -15,9 +15,16 @@ class ListaCarrinho extends StatefulWidget {
 
   ListaCarrinho({
     Key key,
+    this.atualiza,
   }) : super(key: key);
 
   /// #endregion Constructor
+
+  /// #region Public Properties
+
+  final Function atualiza;
+
+  /// #endregion Public Properties
 
   @override
   _ListaCarrinhoState createState() => _ListaCarrinhoState();
@@ -33,11 +40,27 @@ class _ListaCarrinhoState extends State<ListaCarrinho> {
   /// #region Private Methods
 
   _aumentarQuantidade(ItemCarrinho item) {
-    item.quantidade++;
+    setState(() {
+      item.quantidade++;
+      widget.atualiza();
+    });
   }
 
   _diminuirQuantidade(ItemCarrinho item) {
-    item.quantidade--;
+    if (item.quantidade > 1)
+      setState(() {
+        item.quantidade--;
+        widget.atualiza();
+      });
+    else
+      _removerMovel(item);
+  }
+
+  _removerMovel(ItemCarrinho item) {
+    setState(() {
+      Inicio.itensCarrinho.remove(item);
+      widget.atualiza();
+    });
   }
 
   /// #endregion Private Methods
