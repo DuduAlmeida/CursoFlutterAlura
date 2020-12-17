@@ -35,7 +35,10 @@ class CardDetalhes extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextoDetalhes(texto: movel.titulo),
+              TextoDetalhes(
+                texto: movel.titulo,
+                estilo: Theme.of(context).textTheme.headline1,
+              ),
               TextoDetalhes(texto: movel.descricao),
             ],
           ),
@@ -44,7 +47,10 @@ class CardDetalhes extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(formatacaoReais.format(movel.preco)),
+                Text(
+                  formatacaoReais.format(movel.preco),
+                  style: Theme.of(context).textTheme.headline1,
+                ),
                 FlatButton(
                   color: Theme.of(context).primaryColor,
                   onPressed: () {},

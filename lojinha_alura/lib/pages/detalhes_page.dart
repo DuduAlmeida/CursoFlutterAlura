@@ -49,7 +49,7 @@ class DetalhesPage extends StatelessWidget {
             ///
             /// Coloca um tamanho máximo no item
             ///
-            height: 205,
+            height: 220,
             child: CardDetalhes(
               movel: movel,
             ),

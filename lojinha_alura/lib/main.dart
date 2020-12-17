@@ -22,6 +22,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: PaletaCores().lilas,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        textTheme: TextTheme(
+          headline1: TextStyle(
+            fontSize: 20,
+            fontFamily: 'Alata',
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
       ),
       routes: {
         '/carrinho': (context) => CarrinhoPage(),
