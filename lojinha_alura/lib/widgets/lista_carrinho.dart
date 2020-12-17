@@ -1,6 +1,7 @@
 /// #region Imports
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:lojinha_alura/models/item_carrinho.dart';
 import 'package:lojinha_alura/models/movel.dart';
 import 'package:lojinha_alura/pages/inicio_page.dart';
@@ -39,14 +40,14 @@ class _ListaCarrinhoState extends State<ListaCarrinho> {
 
   /// #region Private Methods
 
-  _aumentarQuantidade(ItemCarrinho item) {
+  void _aumentarQuantidade(ItemCarrinho item) {
     setState(() {
       item.quantidade++;
       widget.atualiza();
     });
   }
 
-  _diminuirQuantidade(ItemCarrinho item) {
+  void _diminuirQuantidade(ItemCarrinho item) {
     if (item.quantidade > 1)
       setState(() {
         item.quantidade--;
@@ -56,7 +57,7 @@ class _ListaCarrinhoState extends State<ListaCarrinho> {
       _removerMovel(item);
   }
 
-  _removerMovel(ItemCarrinho item) {
+  void _removerMovel(ItemCarrinho item) {
     setState(() {
       Inicio.itensCarrinho.remove(item);
       widget.atualiza();
@@ -72,6 +73,10 @@ class _ListaCarrinhoState extends State<ListaCarrinho> {
       itemBuilder: (context, indice) {
         final ItemCarrinho item = carrinho[indice];
         final Movel movel = item.movel;
+        final formatacaoReais = NumberFormat.currency(
+          locale: 'pt_BR',
+          symbol: 'R\$',
+        );
 
         return Container(
           padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -97,11 +102,16 @@ class _ListaCarrinhoState extends State<ListaCarrinho> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(movel.titulo),
+                        Text(
+                          movel.titulo,
+                          style: Theme.of(context).textTheme.headline3,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('${movel.preco}'),
+                            Text(
+                              formatacaoReais.format(movel.preco),
+                            ),
                             Row(
                               children: [
                                 GestureDetector(

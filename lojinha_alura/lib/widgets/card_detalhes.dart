@@ -30,9 +30,21 @@ class CardDetalhes extends StatelessWidget {
 
   /// #region Public Methods
 
-  _adicionarItemCarrinho(ItemCarrinho item) {
+  void _adicionarItemCarrinho(ItemCarrinho item) {
     Inicio.itensCarrinho.add(item);
     atualizaPagina();
+  }
+
+  void _verificarListaItemCarrinho(
+      List<ItemCarrinho> lista, ItemCarrinho item) {
+    //-1 -> Não existe na lista
+    //<= 0 -> O índice do item, logo ele existe
+    int indiceMovel = lista.indexWhere((element) => element.movel == movel);
+    if (indiceMovel >= 0) {
+      lista[indiceMovel].quantidade += 1;
+    } else {
+      _adicionarItemCarrinho(item);
+    }
   }
 
   /// #endregion Public Methods
@@ -67,7 +79,8 @@ class CardDetalhes extends StatelessWidget {
                 FlatButton(
                   color: Theme.of(context).primaryColor,
                   onPressed: () {
-                    _adicionarItemCarrinho(
+                    _verificarListaItemCarrinho(
+                      Inicio.itensCarrinho,
                       ItemCarrinho(quantidade: 1, movel: movel),
                     );
                   },
