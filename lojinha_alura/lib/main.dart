@@ -29,6 +29,12 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.bold,
             color: Colors.black,
           ),
+          headline2: TextStyle(
+            fontSize: 18,
+            fontFamily: 'Alata',
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
         ),
       ),
       routes: {

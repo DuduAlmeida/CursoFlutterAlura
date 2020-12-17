@@ -26,7 +26,10 @@ class TituloElementoGridProdutos extends StatelessWidget {
       /// Faz com que fique a 10 px da parte inferior do elemento pai
       ///
       bottom: 10,
-      child: Text(titulo),
+      child: Text(
+        titulo,
+        style: Theme.of(context).textTheme.headline2,
+      ),
     );
   }
 }
