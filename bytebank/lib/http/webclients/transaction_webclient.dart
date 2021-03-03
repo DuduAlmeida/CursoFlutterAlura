@@ -35,31 +35,14 @@ class TransactionWebClient {
     final List<Transaction> transactions = new List();
 
     for (Map<String, dynamic> transactionJson in decodedJson) {
-      final Map<String, dynamic> contactJson = transactionJson['contact'];
-      final Transaction transaction = Transaction(
-        transactionJson['value'],
-        Contact(
-          0,
-          contactJson['name'],
-          contactJson['accountNumber'],
-        ),
-      );
-      transactions.add(transaction);
+      transactions.add(Transaction.fromJson(transactionJson));
     }
     return transactions;
   }
 
   Transaction _toTransaction(Response response) {
     final Map<String, dynamic> json = jsonDecode(response.body);
-    final Map<String, dynamic> contactJson = json['contact'];
-    return Transaction(
-      json['value'],
-      Contact(
-        0,
-        contactJson['name'],
-        contactJson['accountNumber'],
-      ),
-    );
+    return Transaction.fromJson(json);
   }
 
   Map<String, dynamic> _toMap(Transaction transaction) {
